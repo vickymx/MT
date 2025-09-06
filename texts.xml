@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE texts SYSTEM "texts.dtd">
+<texts>
+  <entry id="m1">
+    <category>medicine</category>
+    <lang code="bg">
+      <title>Абидоакс</title>
+      <content>Абидоакс съдържа дабигатран етексилат (антикоагулант). При възрастни: профилактика на венозни тромби след смяна на колянна/тазобедрена става. При деца: разтваря съществуващи тромби и предотвратява повторно образуване.</content>
+    </lang>
+    <lang code="en">
+      <title>Abidoax</title>
+      <content>Abidoax contains dabigatran etexilate (anticoagulant). Adults: prevents venous clots after knee/hip replacement. Children: dissolves existing clots and prevents recurrence.</content>
+    </lang>
+    <lang code="fr">
+      <title>Abidoax</title>
+      <content>Abidoax contient du dabigatran étexilate (anticoagulant). Adultes : prévention des caillots veineux après prothèse du genou/de la hanche. Enfants : dissout les caillots existants et empêche leur récidive.</content>
+    </lang>
+  </entry>
+  <entry id="m2">
+    <category>medicine</category>
+    <lang code="bg">
+      <title>Ибупрофен Акорд</title>
+      <content>НСПВС за краткосрочно лечение на висока температура и лека до умерена болка (вкл. дисменорея) при възрастни и деца &gt;6 г. Дългосрочно симптоматично лечение на болка/възпаление при хронични ревматични заболявания.</content>
+    </lang>
+    <lang code="en">
+      <title>Ibuprofen Accord</title>
+      <content>NSAID for short‑term treatment of high fever and mild‑to‑moderate pain (incl. dysmenorrhea) in adults and children &gt;6 years. Long‑term symptomatic treatment of pain/inflammation in chronic inflammatory rheumatic diseases.</content>
+    </lang>
+    <lang code="fr">
+      <title>Ibuprofène Accord</title>
+      <content>AINS pour le traitement à court terme de la fièvre élevée et des douleurs légères à modérées (y compris dysménorrhée) chez les adultes et enfants &gt;6 ans. Traitement symptomatique à long terme de la douleur/l’inflammation dans les maladies rhumatismales chroniques.</content>
+    </lang>
+  </entry>
+  <entry id="m3">
+    <category>medicine</category>
+    <lang code="bg">
+      <title>Парацетамол</title>
+      <content>Аналгетик и антипиретик (пара‑аминофенол). Ефективен при лека до умерена остра и хронична болка. Намалява повишената температура при треска.</content>
+    </lang>
+    <lang code="en">
+      <title>Paracetamol</title>
+      <content>Analgesic and antipyretic (para‑aminophenol). Effective for mild to moderate acute and chronic pain. Reduces elevated body temperature during fever.</content>
+    </lang>
+    <lang code="fr">
+      <title>Paracétamol</title>
+      <content>Analgésique et antipyrétique (para‑aminophénol). Efficace contre les douleurs aiguës/chroniques légères à modérées. Réduit la température corporelle en cas de fièvre.</content>
+    </lang>
+  </entry>
+  <entry id="m4">
+    <category>medicine</category>
+    <lang code="bg">
+      <title>Каслирол 250 mg/5 ml сироп</title>
+      <content>Съдържа карбоцистеин (муколитик). За възрастни и деца &gt;15 г. при респираторни заболявания със затруднено отхрачване; подпомага изчистването на бронхиални секрети.</content>
+    </lang>
+    <lang code="en">
+      <title>Kaslirol 250 mg/5 ml syrup</title>
+      <content>Contains carbocisteine (mucolytic). For adults and children &gt;15 years with respiratory diseases accompanied by difficult expectoration; helps clear bronchial secretions.</content>
+    </lang>
+    <lang code="fr">
+      <title>Kaslirol 250 mg/5 ml sirop</title>
+      <content>Contient la carbocistéine (mucolytique). Indiqué chez l’adulte et l’enfant &gt;15 ans pour les affections respiratoires avec expectoration difficile ; aide à évacuer les sécrétions bronchiques.</content>
+    </lang>
+  </entry>
+  <entry id="m5">
+    <category>medicine</category>
+    <lang code="bg">
+      <title>Хексорал 0,1 g/100 ml разтвор</title>
+      <content>Антисептик с антибактериално и противогъбично действие (хексетидин). Показан при леки орофарингеални инфекции, гингивит, възпалено гърло, рецидивиращи афти, халитоза; преди/след орофарингеална операция; за ежедневна орална хигиена.</content>
+    </lang>
+    <lang code="en">
+      <title>Hexoral 0.1 g/100 ml solution</title>
+      <content>Antiseptic with antibacterial and antifungal action (hexetidine). Indicated for minor oropharyngeal infections, gingivitis, sore throat, recurrent aphthous ulcers, halitosis; before/after oropharyngeal surgery; daily oral hygiene.</content>
+    </lang>
+    <lang code="fr">
+      <title>Hexoral 0,1 g/100 ml solution buccale</title>
+      <content>Antiseptique à base d’hexétidine. Indiqué pour infections oropharyngées mineures, gingivite, maux de gorge, aphtes récidivants, halitose ; avant/après chirurgie oropharyngée ; hygiène buccale quotidienne.</content>
+    </lang>
+  </entry>
+  <entry id="m6">
+    <category>medicine</category>
+    <lang code="bg">
+      <title>Мипрофен 100 mg таблетки</title>
+      <content>Съдържа флурбипрофен (НСПВС). При остеоартрит, ревматични заболявания, анкилозиращ спондилит, мускулно‑скелетни смущения, болки в кръста, навяхвания и изкълчвания; също зъбобол, постоперативна болка, менструална болка, мигрена.</content>
+    </lang>
+    <lang code="en">
+      <title>Myprofen 100 mg tablets</title>
+      <content>Contains flurbiprofen (NSAID). For osteoarthritis, rheumatic disease, ankylosing spondylitis, musculoskeletal disorders, low back pain, sprains/strains; also toothache, post‑operative pain, menstrual pain, migraine.</content>
+    </lang>
+    <lang code="fr">
+      <title>Myprofen 100 mg comprimés</title>
+      <content>Contient du flurbiprofène (AINS). Pour arthrose, affections rhumatismales, spondylarthrite ankylosante, troubles musculo‑squelettiques, lombalgies, entorses/foulures ; aussi douleurs dentaires, postopératoires, menstruelles et migraines.</content>
+    </lang>
+  </entry>
+  <entry id="m7">
+    <category>medicine</category>
+    <lang code="bg">
+      <title>ЛАМИЗИЛ ДЕРМГЕЛ 1% гел</title>
+      <content>Противогъбичен продукт (тербинафин). Без рецепта за лечение на кожни микози; използвайте внимателно според указанията за най‑добри резултати.</content>
+    </lang>
+    <lang code="en">
+      <title>LAMISIL DERMGEL 1% Gel</title>
+      <content>Antifungal (terbinafine). Over‑the‑counter treatment for skin fungal infections; use carefully as directed for best results.</content>
+    </lang>
+    <lang code="fr">
+      <title>LAMISIL DERMGEL 1% Gel</title>
+      <content>Antifongique (terbinafine). Sans ordonnance pour le traitement des infections cutanées fongiques ; utiliser avec précaution selon les instructions.</content>
+    </lang>
+  </entry>
+  <entry id="m8">
+    <category>medicine</category>
+    <lang code="bg">
+      <title>Ефизол 0,25 mg/30 mg таблетки за смучене</title>
+      <content>Комбинация деквалиниев хлорид + аскорбинова киселина. Деквалиниевият хлорид потиска микроорганизми (вкл. гноеродни бактерии) и има противогъбична активност; уврежда клетъчните мембрани. Витамин C укрепва съдовите стени, намалява пропускливостта и има противовъзпалителен ефект.</content>
+    </lang>
+    <lang code="en">
+      <title>Efisol 0.25 mg/30 mg lozenges</title>
+      <content>Combination of dequalinium chloride + ascorbic acid. Dequalinium inhibits microorganisms (incl. pyogenic bacteria) and has antifungal activity; damages cell membranes. Vitamin C strengthens vessel walls, reduces permeability, and has anti‑inflammatory effects.</content>
+    </lang>
+    <lang code="fr">
+      <title>Efisol 0,25 mg/30 mg comprimés à sucer</title>
+      <content>Association chlorure de déqualinium + acide ascorbique. Le déqualinium inhibe certains micro‑organismes (y compris pyogènes) et possède une activité antifongique ; altère les membranes cellulaires. La vitamine C renforce les parois vasculaires, réduit la perméabilité et a un effet anti‑inflammatoire.</content>
+    </lang>
+  </entry>
+  <entry id="m9">
+    <category>medicine</category>
+    <lang code="bg">
+      <title>Профикс 500 mg таблетки</title>
+      <content>Съдържа цефпрозил (500 mg) – полусинтетичен широкоспектърен цефалоспоринов антибиотик. За лечение на инфекции, причинени от чувствителни бактерии.</content>
+    </lang>
+    <lang code="en">
+      <title>Profix 500 mg tablets</title>
+      <content>Contains cefprozil 500 mg – semi‑synthetic, broad‑spectrum cephalosporin antibiotic. For infections caused by cefprozil‑sensitive bacteria.</content>
+    </lang>
+    <lang code="fr">
+      <title>Profix 500 mg comprimés</title>
+      <content>Contient 500 mg de céfprozil – antibiotique céphalosporine semi‑synthétique à large spectre. Pour les infections dues à des bactéries sensibles au céfprozil.</content>
+    </lang>
+  </entry>
+  <entry id="m10">
+    <category>medicine</category>
+    <lang code="bg">
+      <title>Витамин A Софарма 40 000 IU/ml капки</title>
+      <content>Ретинол (витамин A), мастноразтворим. Подпомага регенерацията на кожа и лигавици; предотвратява изсъхване на конюнктивата; участва в синтеза на родопсин (адаптация към слаба светлина); подпомага хормонален синтез, развитие на скелета и устойчивост към инфекции/студ.</content>
+    </lang>
+    <lang code="en">
+      <title>Vitamin A Sopharma 40,000 IU/ml drops</title>
+      <content>Retinol (vitamin A), fat‑soluble. Aids regeneration of skin/mucosa; prevents conjunctival dryness; part of rhodopsin synthesis (low‑light adaptation); supports hormone synthesis, skeletal development, and resistance to infections/cold.</content>
+    </lang>
+    <lang code="fr">
+      <title>Vitamine A Sopharma 40 000 UI/ml gouttes</title>
+      <content>Rétinol, vitamine liposoluble. Favorise la régénération de la peau et des muqueuses ; prévient la sécheresse conjonctivale ; intervient dans la synthèse de la rhodopsine ; soutient la synthèse hormonale, le développement du squelette et la résistance aux infections/au froid.</content>
+    </lang>
+  </entry>
+  <entry id="me1">
+    <category>menus</category>
+    <lang code="bg">
+      <title>Закуска</title>
+      <content>Яйца Бенедикт с пушена сьомга и холандез; Кростини с козе сирене, мед и мащерка; Чиа пудинг с кокосово мляко и манго; Прясно изцеден сок от нар и портокал.</content>
+    </lang>
+    <lang code="en">
+      <title>Breakfast</title>
+      <content>Eggs Benedict with smoked salmon and hollandaise; Crostini with goat cheese, honey and thyme; Chia pudding with coconut milk and mango; Freshly squeezed pomegranate and orange juice.</content>
+    </lang>
+    <lang code="fr">
+      <title>Petit-déjeuner</title>
+      <content>Œufs bénédicte au saumon fumé et sauce hollandaise ; Crostini au fromage de chèvre, miel et thym ; Pudding de chia au lait de coco et mangue ; Jus frais de grenade et d’orange.</content>
+    </lang>
+  </entry>
+  <entry id="me2">
+    <category>menus</category>
+    <lang code="bg">
+      <title>Обяд</title>
+      <content>Салата с киноа, авокадо и скариди; Телешки тартар с каперси и жълтък; Крем супа от грах с ментово масло; Мини фокача с розмарин и маслини.</content>
+    </lang>
+    <lang code="en">
+      <title>Lunch</title>
+      <content>Quinoa salad with avocado and shrimp; Beef tartare with capers and egg yolk; Creamy pea soup with mint oil; Mini focaccia with rosemary and olives.</content>
+    </lang>
+    <lang code="fr">
+      <title>Déjeuner</title>
+      <content>Salade de quinoa avec avocat et crevettes ; Tartare de bœuf avec câpres et jaune d’œuf ; Velouté de pois à l’huile de menthe ; Mini focaccia au romarin et aux olives.</content>
+    </lang>
+  </entry>
+  <entry id="me3">
+    <category>menus</category>
+    <lang code="bg">
+      <title>Вечеря</title>
+      <content>Филе от лаврак с мус от целина и сос от шампанско; Патешко магре с пюре от пащърнак и сос от портокал; Равиоли с рикота и лимонова кора, градински чай и масло; Шоколадов фондан с малиново кули.</content>
+    </lang>
+    <lang code="en">
+      <title>Dinner</title>
+      <content>Sea bass fillet with celery mousse and champagne sauce; Duck magret with parsnip purée and orange sauce; Ricotta and lemon zest ravioli with sage butter; Chocolate fondant with raspberry coulis.</content>
+    </lang>
+    <lang code="fr">
+      <title>Dîner</title>
+      <content>Filet de bar avec mousse de céleri et sauce au champagne ; Magret de canard avec purée de panais et sauce à l’orange ; Raviolis à la ricotta et zeste de citron au beurre de sauge ; Fondant au chocolat avec coulis de framboise.</content>
+    </lang>
+  </entry>
+  <entry id="me4">
+    <category>menus</category>
+    <lang code="bg">
+      <title>Бизнес среща</title>
+      <content>Канапета с гъши дроб и смокиново сладко; Мини тарталети с крем от авокадо и скариди; Печено телешко филе с трюфелено масло; Панакота с ванилия и компот от круши.</content>
+    </lang>
+    <lang code="en">
+      <title>Business Meeting</title>
+      <content>Foie gras canapés with fig jam; Mini tartlets with avocado cream and shrimp; Roasted beef fillet with truffle oil; Vanilla panna cotta with pear compote.</content>
+    </lang>
+    <lang code="fr">
+      <title>Réunion d'affaires</title>
+      <content>Canapés au foie gras avec confiture de figues ; Mini tartelettes à la crème d’avocat et crevettes ; Filet de bœuf rôti à l’huile de truffe ; Panna cotta à la vanille avec compote de poires.</content>
+    </lang>
+  </entry>
+  <entry id="me5">
+    <category>menus</category>
+    <lang code="bg">
+      <title>Сватба</title>
+      <content>Салата с рукола, пармезан и балсамов винегрет; Пълнено пилешко със спанак и Бри; Лаврак на фурна с лимон и каперси; Торта с бял шоколад и малини.</content>
+    </lang>
+    <lang code="en">
+      <title>Wedding</title>
+      <content>Arugula salad with parmesan and balsamic vinaigrette; Stuffed chicken with spinach and Brie; Oven‑baked sea bass with lemon and capers; White chocolate and raspberry cake.</content>
+    </lang>
+    <lang code="fr">
+      <title>Mariage</title>
+      <content>Salade de roquette avec parmesan et vinaigrette balsamique ; Poulet farci aux épinards et fromage Brie ; Bar rôti au citron et câpres ; Gâteau au chocolat blanc et framboises.</content>
+    </lang>
+  </entry>
+  <entry id="me6">
+    <category>menus</category>
+    <lang code="bg">
+      <title>Коктейлно парти</title>
+      <content>Мини бургери с телешко и карамелизиран лук; Шишчета с чери домати, моцарела и песто; Тарталети с крем от пушена сьомга; Мини еклери с мус от лайм.</content>
+    </lang>
+    <lang code="en">
+      <title>Cocktail Party</title>
+      <content>Mini beef burgers with caramelized onion; Cocktail skewers with cherry tomatoes, mozzarella and pesto; Tartlets with smoked salmon cream; Mini éclairs with lime mousse.</content>
+    </lang>
+    <lang code="fr">
+      <title>Cocktail</title>
+      <content>Mini burgers de bœuf avec oignon caramélisé ; Brochettes avec tomates cerises, mozzarella et pesto ; Tartelettes à la crème de saumon fumé ; Mini éclairs à la mousse de citron vert.</content>
+    </lang>
+  </entry>
+  <entry id="me7">
+    <category>menus</category>
+    <lang code="bg">
+      <title>Вегетарианско меню</title>
+      <content>Карпачо от червено цвекло с козе сирене; Ризото с гъби и трюфелово масло; Печени зеленчуци с таханов сос; Сорбе от манго и лайм.</content>
+    </lang>
+    <lang code="en">
+      <title>Vegetarian Menu</title>
+      <content>Beet carpaccio with goat cheese; Mushroom risotto with truffle oil; Roasted vegetables with tahini sauce; Mango and lime sorbet.</content>
+    </lang>
+    <lang code="fr">
+      <title>Menu végétarien</title>
+      <content>Carpaccio de betterave avec fromage de chèvre ; Risotto aux champignons et huile de truffe ; Légumes rôtis avec sauce tahini ; Sorbet mangue‑citron vert.</content>
+    </lang>
+  </entry>
+  <entry id="me8">
+    <category>menus</category>
+    <lang code="bg">
+      <title>Детско меню</title>
+      <content>Мини макарони с домашен доматен сос; Пилешки хапки с пармезанова коричка; Пюре от сладък картоф с масло; Мини мъфини с банан и мед.</content>
+    </lang>
+    <lang code="en">
+      <title>Kids Menu</title>
+      <content>Mini macaroni with homemade tomato sauce; Chicken bites with parmesan crust; Sweet potato purée with butter; Mini banana and honey muffins.</content>
+    </lang>
+    <lang code="fr">
+      <title>Menu enfant</title>
+      <content>Mini macaronis avec sauce tomate maison ; Bouchées de poulet à la croûte de parmesan ; Purée de patate douce au beurre ; Mini muffins banane‑miel.</content>
+    </lang>
+  </entry>
+  <entry id="me9">
+    <category>menus</category>
+    <lang code="bg">
+      <title>Международно дегустационно меню</title>
+      <content>Гаспачо с краставица и чушка; Японски гьоза със зеленчуци; Индийско къри с кокосово мляко и ориз басмати; Френски крем брюле с ванилия.</content>
+    </lang>
+    <lang code="en">
+      <title>International Tasting Menu</title>
+      <content>Spanish gazpacho with cucumber and pepper; Japanese vegetable gyoza; Indian curry with coconut milk and basmati rice; French vanilla crème brûlée.</content>
+    </lang>
+    <lang code="fr">
+      <title>Menu dégustation international</title>
+      <content>Gaspacho espagnol concombre‑poivron ; Gyoza japonais aux légumes ; Curry indien au lait de coco et riz basmati ; Crème brûlée à la vanille.</content>
+    </lang>
+  </entry>
+  <entry id="me10">
+    <category>menus</category>
+    <lang code="bg">
+      <title>Здравословно меню</title>
+      <content>Салата с киноа, нар и фета; Печена сьомга с лимон и копър; Супа от тиква с кокосово мляко; Печена ябълка с канела и орехи.</content>
+    </lang>
+    <lang code="en">
+      <title>Wellness Menu</title>
+      <content>Quinoa salad with pomegranate and feta; Roasted salmon with lemon and dill; Pumpkin soup with coconut milk; Baked apple with cinnamon and walnuts.</content>
+    </lang>
+    <lang code="fr">
+      <title>Menu bien-être</title>
+      <content>Salade de quinoa avec grenade et feta ; Saumon rôti au citron et à l’aneth ; Soupe de potiron au lait de coco ; Pomme cuite à la cannelle et aux noix.</content>
+    </lang>
+  </entry>
+</texts>

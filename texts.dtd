@@ -1,0 +1,8 @@
+<!ELEMENT texts (entry+)>
+<!ELEMENT entry (category, lang, lang, lang)>
+<!ATTLIST entry id ID #REQUIRED>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT lang (title, content)>
+<!ATTLIST lang code (bg|en|fr) #REQUIRED>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT content (#PCDATA)>
