@@ -1,87 +1,247 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Multilingual Functional Texts</title>
-  <base href="https://vickymx.github.io/MT/">
-  <link rel="stylesheet" href="assets/styles.css?v=3">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Multilingual Functional Texts</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+:root{--bg1:#1a2a6c;--bg2:#b21f1f;--bg3:#fdbb2d;--card:#fff;--text:#222;--muted:#666;--radius:16px;--shadow:0 8px 20px rgba(0,0,0,.15)}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));background-size:400% 400%;animation:grad 15s ease infinite;min-height:100vh;display:flex;flex-direction:column}
+@keyframes grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+header{padding:20px 32px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);display:flex;justify-content:space-between;align-items:center;color:#fff}
+.logo{font-weight:800;font-size:20px;letter-spacing:1px}
+main{flex:1;max-width:1000px;width:100%;margin:30px auto;padding:0 20px}
+.controls{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+select,button{flex:1;padding:12px 14px;border-radius:16px;border:none;background:#fff;box-shadow:var(--shadow);font-size:15px;font-weight:500;cursor:pointer;transition:all .2s}
+select:hover,button:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,.2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--card);border-radius:16px;padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card h3{margin:0 0 10px;font-size:18px;color:#3f51b5}
+.card p{margin:0;color:var(--muted);line-height:1.5}
+.meta{font-size:13px;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+.badge{padding:3px 8px;border-radius:12px;font-weight:600;font-size:12px;color:#fff}
+.badge.medicine{background:#3f51b5}
+.badge.menus{background:#ff9800}
+footer{text-align:center;padding:16px;font-size:14px;color:#fff;opacity:.9}
+footer a{color:#ffd54f;text-decoration:none;font-weight:600}
+footer a:hover{text-decoration:underline}
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo"><a href="https://vickymx.github.io/MT/" style="color:inherit;text-decoration:none">FT</a></div>
-    <div>Multilingual Functional Texts</div>
-  </header>
+<header>
+  <div class="logo">FT</div><div>Multilingual Functional Texts</div>
+</header>
 
-  <main>
-    <div class="controls">
-      <select id="lang">
-        <option value="bg">Български (BG)</option>
-        <option value="en" selected>English (EN)</option>
-        <option value="fr">Français (FR)</option>
-      </select>
-      <select id="category">
-        <option value="all">All categories</option>
-        <option value="medicine">Medicine</option>
-        <option value="menus">Menus</option>
-      </select>
-    </div>
+<main>
+  <div class="controls">
+    <select id="lang">
+      <option value="bg">Български (BG)</option>
+      <option value="en" selected>English (EN)</option>
+      <option value="fr">Français (FR)</option>
+      <option value="es">Español (ES)</option>
+      <option value="zh">中文 (ZH)</option>
+    </select>
+    <select id="category">
+      <option value="all">All categories</option>
+      <option value="medicine">Medicine</option>
+      <option value="menus">Menus</option>
+    </select>
+    <button id="copy">Copy link</button>
+  </div>
 
-    <div id="grid" class="grid"></div>
-    <p id="emptyMsg" style="display:none;color:#fff;opacity:.9;margin-top:12px">
-      No data embedded. Run <code>python scripts/build_site.py</code> before deploying.
-    </p>
-  </main>
+  <div id="grid" class="grid"></div>
+  <p id="emptyMsg" style="display:none;color:#fff;opacity:.95;margin-top:12px">
+    No data embedded.
+  </p>
+</main>
 
-  <script>
-    window.DATA = [{"id": "m1", "category": "medicine", "langs": {"bg": {"title": "Абидоакс", "content": "Абидоакс съдържа дабигатран етексилат (антикоагулант). При възрастни: профилактика на венозни тромби след смяна на колянна/тазобедрена става. При деца: разтваря съществуващи тромби и предотвратява повторно образуване."}, "en": {"title": "Abidoax", "content": "Abidoax contains dabigatran etexilate (anticoagulant). Adults: prevents venous clots after knee/hip replacement. Children: dissolves existing clots and prevents recurrence."}, "fr": {"title": "Abidoax", "content": "Abidoax contient du dabigatran étexilate (anticoagulant). Adultes : prévention des caillots veineux après prothèse du genou/de la hanche. Enfants : dissout les caillots existants et empêche leur récidive."}}}];
+<footer>
+  <p>From <a href="https://github.com/vickymx/Multilingua" target="_blank">Viktoria Mircheva</a></p>
+</footer>
 
-    function render(){
-      const grid = document.getElementById('grid');
-      const msg  = document.getElementById('emptyMsg');
-      const lang = document.getElementById('lang').value;
-      const cat  = document.getElementById('category').value;
+<script>
+// ---------- EMBEDDED DATA (20 entries × 5 languages) ----------
+window.DATA = [
+  {id:"m1",category:"medicine",langs:{
+    bg:{title:"Абидоакс",content:"Антикоагулант (дабигатран етексилат). Възрастни: профилактика на венозни тромби след смяна на става. Деца: разтваря тромби и предотвратява рецидив."},
+    en:{title:"Abidoax",content:"Anticoagulant (dabigatran etexilate). Adults: prevents venous clots after joint replacement. Children: dissolves clots and prevents recurrence."},
+    fr:{title:"Abidoax",content:"Anticoagulant (dabigatran étexilate). Adultes : prévention des caillots veineux après prothèse. Enfants : dissout les caillots et empêche la récidive."},
+    es:{title:"Abidoax",content:"Anticoagulante (dabigatrán etexilato). Adultos: previene trombos venosos tras artroplastia. Niños: disuelve trombos y evita recurrencia."},
+    zh:{title:"Abidoax",content:"抗凝药（达比加群乙酯）。成人：关节置换术后预防静脉血栓。儿童：溶解已形成血栓并预防复发。"}
+  }},
+  {id:"m2",category:"medicine",langs:{
+    bg:{title:"Ибупрофен Акорд",content:"НСПВС за краткосрочно лечение на висока температура и лека до умерена болка; дългосрочно симптоматично лечение при хронични ревматични заболявания."},
+    en:{title:"Ibuprofen Accord",content:"NSAID for short-term high fever and mild–moderate pain; long-term symptomatic treatment in chronic inflammatory rheumatic diseases."},
+    fr:{title:"Ibuprofène Accord",content:"AINS pour fièvre élevée et douleurs légères à modérées; traitement symptomatique au long cours des maladies rhumatismales."},
+    es:{title:"Ibuprofeno Accord",content:"AINE para fiebre alta y dolor leve-moderado; tratamiento sintomático prolongado en enfermedades reumáticas inflamatorias crónicas."},
+    zh:{title:"布洛芬 Accord",content:"非甾体抗炎药。用于短期高热与轻-中度疼痛；慢性炎性风湿病的对症长期治疗。"}
+  }},
+  {id:"m3",category:"medicine",langs:{
+    bg:{title:"Парацетамол",content:"Аналгетик и антипиретик. Ефективен при лека до умерена болка и за понижаване на температура."},
+    en:{title:"Paracetamol",content:"Analgesic and antipyretic. Effective for mild–moderate pain and fever reduction."},
+    fr:{title:"Paracétamol",content:"Analgésique et antipyrétique. Efficace contre douleurs légères à modérées et la fièvre."},
+    es:{title:"Paracetamol",content:"Analgésico y antipirético. Eficaz para dolor leve-moderado y para bajar la fiebre."},
+    zh:{title:"对乙酰氨基酚",content:"解热镇痛药。用于轻-中度疼痛及发热。"}
+  }},
+  {id:"m4",category:"medicine",langs:{
+    bg:{title:"Каслирол сироп 250 mg/5 ml",content:"Карбоцистеин (муколитик) за облекчаване на отхрачването при респираторни заболявания (възрастни и >15 г.)."},
+    en:{title:"Kaslirol syrup 250 mg/5 ml",content:"Carbocisteine (mucolytic) to aid expectoration in respiratory conditions (adults and >15 y)."},
+    fr:{title:"Kaslirol sirop 250 mg/5 ml",content:"Carbocistéine (mucolytique) pour faciliter l’expectoration (adultes et >15 ans)."},
+    es:{title:"Kaslirol jarabe 250 mg/5 ml",content:"Carbocisteína (mucolítico) para facilitar la expectoración (adultos y >15 años)."},
+    zh:{title:"Kaslirol 糖浆 250 mg/5 ml",content:"羧甲司坦（黏液溶解剂），用于改善咳痰（成人及>15岁）。"}
+  }},
+  {id:"m5",category:"medicine",langs:{
+    bg:{title:"Хексорал разтвор",content:"Антисептик (хексетидин) при леки орофарингеални инфекции, гингивит, болки в гърлото, афти, халитоза; преди/след операция; ежедневна хигиена."},
+    en:{title:"Hexoral solution",content:"Antiseptic (hexetidine) for minor oropharyngeal infections, gingivitis, sore throat, aphthous ulcers, halitosis; peri-operative use; daily oral hygiene."},
+    fr:{title:"Hexoral solution",content:"Antiseptique (hexétidine) pour infections oropharyngées mineures, gingivite, maux de gorge, aphtes, halitose; usage péri-opératoire; hygiène quotidienne."},
+    es:{title:"Hexoral solución",content:"Antiséptico (hexetidina) para infecciones orofaríngeas leves, gingivitis, odinofagia, aftas, halitosis; uso perioperatorio; higiene oral diaria."},
+    zh:{title:"Hexoral 溶液",content:"抗菌/抗真菌（己定啶）。用于轻度口咽感染、牙龈炎、咽痛、复发性口疮、口臭；术前/术后；日常口腔卫生。"}
+  }},
+  {id:"m6",category:"medicine",langs:{
+    bg:{title:"Мипрофен 100 mg",content:"Флурбипрофен (НСПВС) при артрози, ревматични заболявания, спондилит, мускулно-скелетни болки; зъбобол, постоперативна, менструална болка, мигрена."},
+    en:{title:"Myprofen 100 mg",content:"Flurbiprofen (NSAID) for osteoarthritis, rheumatic disease, spondylitis, musculoskeletal pain; toothache, post-op, menstrual pain, migraine."},
+    fr:{title:"Myprofen 100 mg",content:"Flurbiprofène (AINS) pour arthrose, affections rhumatismales, spondylarthrite, douleurs musculo-squelettiques; douleurs dentaires, postopératoires, menstruelles, migraine."},
+    es:{title:"Myprofen 100 mg",content:"Flurbiprofeno (AINE) para artrosis, enfermedades reumáticas, espondilitis, dolor músculo-esquelético; dolor dental, posoperatorio, menstrual, migraña."},
+    zh:{title:"Myprofen 100 mg",content:"氟比洛芬（NSAID）。用于骨关节炎、风湿病、强直性脊柱炎、肌骨疼痛；牙痛、术后痛、经痛、偏头痛。"}
+  }},
+  {id:"m7",category:"medicine",langs:{
+    bg:{title:"Ламизил Дермгел 1%",content:"Тербинафин (противогъбичен), без рецепта за кожни микози; ползвайте според указанията."},
+    en:{title:"LAMISIL DERMGEL 1%",content:"Terbinafine (antifungal), OTC for skin mycoses; use as directed."},
+    fr:{title:"LAMISIL DERMGEL 1%",content:"Terbinafine (antifongique), sans ordonnance pour mycoses cutanées; utiliser selon les instructions."},
+    es:{title:"LAMISIL DERMGEL 1%",content:"Terbinafina (antifúngico), sin receta para micosis cutáneas; use según las indicaciones."},
+    zh:{title:"LAMISIL DERMGEL 1%",content:"特比萘芬（抗真菌），非处方治疗皮肤真菌感染；按说明使用。"}
+  }},
+  {id:"m8",category:"medicine",langs:{
+    bg:{title:"Ефизол 0,25 mg/30 mg",content:"Деквалиниев хлорид + витамин C. Антимикробно и противогъбично; витамин C укрепва съдовете и има противовъзпалителен ефект."},
+    en:{title:"Efisol 0.25 mg/30 mg",content:"Dequalinium chloride + vitamin C. Antimicrobial/antifungal; vitamin C strengthens vessels and has anti-inflammatory effect."},
+    fr:{title:"Efisol 0,25 mg/30 mg",content:"Chlorure de déqualinium + vitamine C. Antimicrobien/antifongique; la vitamine C renforce les vaisseaux et a un effet anti-inflammatoire."},
+    es:{title:"Efisol 0,25 mg/30 mg",content:"Cloruro de dequalinio + vitamina C. Acción antimicrobiana/antifúngica; la vitamina C refuerza los vasos y es antiinflamatoria."},
+    zh:{title:"Efisol 0.25 mg/30 mg",content:"去甲氯铵 + 维生素C。抗菌/抗真菌；维生素C增强血管并具抗炎作用。"}
+  }},
+  {id:"m9",category:"medicine",langs:{
+    bg:{title:"Профикс 500 mg",content:"Цефпрозил 500 mg – цефалоспоринов антибиотик с широк спектър за инфекции от чувствителни бактерии."},
+    en:{title:"Profix 500 mg",content:"Cefprozil 500 mg – broad-spectrum cephalosporin antibiotic for infections due to susceptible bacteria."},
+    fr:{title:"Profix 500 mg",content:"Céfprozil 500 mg – antibiotique céphalosporine à large spectre pour infections dues à des bactéries sensibles."},
+    es:{title:"Profix 500 mg",content:"Cefprozilo 500 mg – antibiótico cefalosporínico de amplio espectro para infecciones por bacterias sensibles."},
+    zh:{title:"Profix 500 mg",content:"头孢丙烯 500 mg——广谱头孢菌素，用于敏感菌感染。"}
+  }},
+  {id:"m10",category:"medicine",langs:{
+    bg:{title:"Витамин A Софарма 40 000 IU/ml",content:"Ретинол (мастноразтворим). Регенерация на кожа/лигавици; родопсин и адаптация към слаба светлина; хормони, скелет, устойчивост към инфекции/студ."},
+    en:{title:"Vitamin A Sopharma 40,000 IU/ml",content:"Retinol (fat-soluble). Supports skin/mucosa regeneration; rhodopsin/low-light adaptation; hormones, skeleton, resistance to infections/cold."},
+    fr:{title:"Vitamine A Sopharma 40 000 UI/ml",content:"Rétinol (liposoluble). Régénération peau/muqueuses; rhodopsine/vision faible; hormones, squelette, résistance aux infections/froid."},
+    es:{title:"Vitamina A Sopharma 40 000 UI/ml",content:"Retinol (liposoluble). Regeneración de piel/mucosas; rodopsina/baja luz; hormonas, esqueleto, resistencia a infecciones/frío."},
+    zh:{title:"维生素A Sopharma 40,000 IU/ml",content:"视黄醇（脂溶性）。皮肤/黏膜再生；视紫红质/暗适应；激素、骨骼、抗感染/抗寒。"}
+  }},
+  {id:"me1",category:"menus",langs:{
+    bg:{title:"Закуска",content:"Яйца Бенедикт; кростини с козе сирене; чиа пудинг; фреш от нар и портокал."},
+    en:{title:"Breakfast",content:"Eggs Benedict; goat-cheese crostini; chia pudding; pomegranate-orange juice."},
+    fr:{title:"Petit-déjeuner",content:"Œufs bénédicte; crostini au chèvre; pudding de chia; jus grenade-orange."},
+    es:{title:"Desayuno",content:"Huevos Benedict; crostini con queso de cabra; pudín de chía; zumo de granada y naranja."},
+    zh:{title:"早餐",content:"班尼迪克蛋；山羊奶酪烤面包片；奇亚籽布丁；石榴橙汁。"}
+  }},
+  {id:"me2",category:"menus",langs:{
+    bg:{title:"Обяд",content:"Салата с киноа; телешки тартар; крем супа от грах; мини фокача."},
+    en:{title:"Lunch",content:"Quinoa salad; beef tartare; creamy pea soup; mini focaccia."},
+    fr:{title:"Déjeuner",content:"Salade de quinoa; tartare de bœuf; velouté de pois; mini focaccia."},
+    es:{title:"Almuerzo",content:"Ensalada de quinoa; tartar de ternera; crema de guisantes; mini focaccia."},
+    zh:{title:"午餐",content:"藜麦沙拉；牛肉塔塔；豌豆浓汤；迷你佛卡夏。"}
+  }},
+  {id:"me3",category:"menus",langs:{
+    bg:{title:"Вечеря",content:"Лаврак с целина; патешко магре; равиоли с рикота; шоколадов фондан."},
+    en:{title:"Dinner",content:"Sea bass with celery; duck magret; ricotta ravioli; chocolate fondant."},
+    fr:{title:"Dîner",content:"Bar au céleri; magret de canard; raviolis ricotta; fondant au chocolat."},
+    es:{title:"Cena",content:"Lubina con apio; magret de pato; raviolis de ricotta; fondant de chocolate."},
+    zh:{title:"晚餐",content:"海鲈配芹菜；法式鸭胸；乳清干酪饺；巧克力熔岩。"}
+  }},
+  {id:"me4",category:"menus",langs:{
+    bg:{title:"Бизнес среща",content:"Гъши дроб канапета; тарталети с авокадо; телешко филе с трюфел; ванилова панакота."},
+    en:{title:"Business meeting",content:"Foie gras canapés; avocado tartlets; truffled beef fillet; vanilla panna cotta."},
+    fr:{title:"Réunion d’affaires",content:"Canapés au foie gras; tartelettes à l’avocat; filet de bœuf truffé; panna cotta à la vanille."},
+    es:{title:"Reunión de negocios",content:"Canapés de foie gras; tartaletas de aguacate; filete de ternera con trufa; pannacotta de vainilla."},
+    zh:{title:"商务会餐",content:"鹅肝小点；牛油果挞；松露牛里脊；香草奶冻。"}
+  }},
+  {id:"me5",category:"menus",langs:{
+    bg:{title:"Сватба",content:"Рукола с пармезан; пилешко с бри; лаврак с лимон; торта с бял шоколад."},
+    en:{title:"Wedding",content:"Arugula-parmesan salad; chicken stuffed with brie; sea bass with lemon; white-chocolate cake."},
+    fr:{title:"Mariage",content:"Roquette-parmesan; poulet farci au brie; bar au citron; gâteau chocolat blanc."},
+    es:{title:"Boda",content:"Ensalada de rúcula y parmesano; pollo relleno con brie; lubina al limón; tarta de chocolate blanco."},
+    zh:{title:"婚宴",content:"芝麻菜帕玛森沙拉；布里芝士酿鸡；柠檬海鲈；白巧克力蛋糕。"}
+  }},
+  {id:"me6",category:"menus",langs:{
+    bg:{title:"Коктейлно парти",content:"Мини бургери; шишчета с моцарела и песто; тарталети със сьомга; мини еклери с лайм."},
+    en:{title:"Cocktail party",content:"Mini burgers; mozzarella-pesto skewers; smoked-salmon tartlets; mini lime éclairs."},
+    fr:{title:"Cocktail",content:"Mini burgers; brochettes mozza-pesto; tartelettes au saumon fumé; mini éclairs au citron vert."},
+    es:{title:"Cóctel",content:"Mini hamburguesas; brochetas de mozzarella y pesto; tartaletas de salmón; mini éclairs de lima."},
+    zh:{title:"鸡尾酒会",content:"迷你汉堡；莫扎里拉香蒜签；熏三文鱼挞；青柠泡芙。"}
+  }},
+  {id:"me7",category:"menus",langs:{
+    bg:{title:"Вегетарианско меню",content:"Червено цвекло карпачо; гъбено ризото; печени зеленчуци; сорбе манго-лайм."},
+    en:{title:"Vegetarian menu",content:"Beet carpaccio; mushroom risotto; roasted vegetables; mango-lime sorbet."},
+    fr:{title:"Menu végétarien",content:"Carpaccio de betterave; risotto aux champignons; légumes rôtis; sorbet mangue-citron vert."},
+    es:{title:"Menú vegetariano",content:"Carpaccio de remolacha; risotto de setas; verduras asadas; sorbete de mango y lima."},
+    zh:{title:"素食菜单",content:"甜菜薄片；蘑菇烩饭；烤蔬菜；芒果青柠雪葩。"}
+  }},
+  {id:"me8",category:"menus",langs:{
+    bg:{title:"Детско меню",content:"Мини макарони; пилешки хапки с пармезан; пюре от сладък картоф; мини мъфини банан-мед."},
+    en:{title:"Kids menu",content:"Mini macaroni; parmesan-crust chicken bites; sweet-potato purée; mini banana-honey muffins."},
+    fr:{title:"Menu enfant",content:"Mini macaronis; bouchées de poulet au parmesan; purée de patate douce; mini muffins banane-miel."},
+    es:{title:"Menú infantil",content:"Mini macarrones; bocados de pollo con parmesano; puré de batata; mini magdalenas de plátano y miel."},
+    zh:{title:"儿童菜单",content:"迷你通心粉；帕玛森鸡块；红薯泥；香蕉蜂蜜玛芬。"}
+  }},
+  {id:"me9",category:"menus",langs:{
+    bg:{title:"Международно дегустационно",content:"Гаспачо; японски гьоза; индийско къри; крем брюле."},
+    en:{title:"International tasting",content:"Gazpacho; Japanese gyoza; Indian curry; crème brûlée."},
+    fr:{title:"Menu dégustation international",content:"Gaspacho; gyoza; curry indien; crème brûlée."},
+    es:{title:"Degustación internacional",content:"Gazpacho; gyoza japonés; curry indio; crème brûlée."},
+    zh:{title:"国际品鉴菜单",content:"西班牙冷汤；日式饺子；印度咖喱；法式焦糖布丁。"}
+  }},
+  {id:"me10",category:"menus",langs:{
+    bg:{title:"Здравословно меню",content:"Киноа с нар и фета; сьомга с лимон и копър; тиквена супа; печена ябълка с канела."},
+    en:{title:"Wellness menu",content:"Quinoa with pomegranate and feta; salmon with lemon and dill; pumpkin soup; baked apple with cinnamon."},
+    fr:{title:"Menu bien-être",content:"Quinoa grenade-feta; saumon citron-aneth; soupe de potiron; pomme cuite à la cannelle."},
+    es:{title:"Menú saludable",content:"Quinoa con granada y feta; salmón con limón y eneldo; sopa de calabaza; manzana asada con canela."},
+    zh:{title:"健康菜单",content:"藜麦配石榴与菲达；柠檬莳萝三文鱼；南瓜汤；肉桂烤苹果。"}
+  }}
+];
 
-      const data = (window.DATA && Array.isArray(window.DATA)) ? window.DATA : [];
-      grid.innerHTML = '';
-
-      if (!data.length) {
-        msg.style.display = 'block';
-        return;
-      } else {
-        msg.style.display = 'none';
-      }
-
-      const items = data.filter(e => cat === 'all' || e.category === cat);
-      for (const it of items) {
-        const L = it.langs[lang];
-        const el = document.createElement('div');
-        el.className = 'card';
-        el.innerHTML = `
-          <div class="meta">
-            <span class="badge ${it.category}">${it.category}</span>
-            <span>#${it.id}</span>
-          </div>
-          <h3>${L.title}</h3>
-          <p>${L.content}</p>
-        `;
-        grid.appendChild(el);
-      }
-
-      const url = new URL("https://vickymx.github.io/MT/");
-      url.searchParams.set('lang', lang);
-      url.searchParams.set('category', cat);
-      history.replaceState({}, '', url);
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(location.search);
-      if (params.get('lang')) document.getElementById('lang').value = params.get('lang');
-      if (params.get('category')) document.getElementById('category').value = params.get('category');
-      document.getElementById('lang').addEventListener('change', render);
-      document.getElementById('category').addEventListener('change', render);
-      render();
-    });
-  </script>
+// ---------- RENDER ----------
+function render(){
+  const grid=document.getElementById('grid');
+  const msg=document.getElementById('emptyMsg');
+  const lang=document.getElementById('lang').value;
+  const cat=document.getElementById('category').value;
+  const data=(window.DATA&&Array.isArray(window.DATA))?window.DATA:[];
+  grid.innerHTML='';
+  if(!data.length){msg.style.display='block';return}else{msg.style.display='none'}
+  const items=data.filter(e=>cat==='all'||e.category===cat);
+  for(const it of items){
+    const L=it.langs[lang]||{};
+    const el=document.createElement('div');
+    el.className='card';
+    el.innerHTML=`<div class="meta"><span class="badge ${it.category}">${it.category}</span><span>#${it.id}</span></div>
+                  <h3>${L.title||'(no title)'}</h3><p>${L.content||''}</p>`;
+    grid.appendChild(el);
+  }
+  const url=new URL(location.href);
+  url.searchParams.set('lang',lang); url.searchParams.set('category',cat);
+  history.replaceState({},'',url);
+}
+window.addEventListener('DOMContentLoaded',()=>{
+  const p=new URLSearchParams(location.search);
+  if(p.get('lang')) document.getElementById('lang').value=p.get('lang');
+  if(p.get('category')) document.getElementById('category').value=p.get('category');
+  document.getElementById('lang').addEventListener('change',render);
+  document.getElementById('category').addEventListener('change',render);
+  document.getElementById('copy').addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(location.href);
+      const b=document.getElementById('copy');const t=b.textContent;b.textContent='Copied!';
+      setTimeout(()=>b.textContent=t,1200)}catch(e){alert('Copy failed')}
+  });
+  render();
+});
+</script>
 </body>
 </html>
