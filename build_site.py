@@ -1,14 +1,27 @@
-import json, pathlib, sys
+import json
+import pathlib
+import sys
 from lxml import etree
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "texts.xml"
-DTD  = ROOT / "data" / "texts.dtd"
-SITE = ROOT / "site"
-INDEX = SITE / "index.html"
+ROOT = pathlib.Path(__file__).resolve().parent
+
+XML_CANDIDATES = [ROOT / "texts.xml", ROOT / "data" / "texts.xml"]
+DTD_CANDIDATES = [ROOT / "texts.dtd", ROOT / "data" / "texts.dtd"]
+INDEX_CANDIDATES = [ROOT / "index.html", ROOT / "site" / "index.html"]
 
 PLACEHOLDER = "/* DATA_PLACEHOLDER */"
-SITE_URL = "https://vickymx.github.io/Multilingua/"
+SITE_URL = "https://vickymx.github.io/MT/"
+
+def pick_first_existing(paths, kind):
+    for p in paths:
+        if p.exists():
+            return p
+    print(f"ERROR: {kind} not found. Looked in:\n  " + "\n  ".join(str(p) for p in paths))
+    sys.exit(1)
+
+DATA = pick_first_existing(XML_CANDIDATES, "texts.xml")
+DTD  = pick_first_existing(DTD_CANDIDATES, "texts.dtd")
+INDEX = pick_first_existing(INDEX_CANDIDATES, "index.html")
 
 def parse_and_validate():
     xml = etree.parse(str(DATA))
@@ -47,4 +60,4 @@ if __name__ == "__main__":
     data = to_js_data(xml)
     inject_into_index(data)
     print("Done.")
-    print(f"Deploy the contents of {SITE} to GitHub Pages, then open: {SITE_URL}")
+    print(f"Open: {SITE_URL}")
