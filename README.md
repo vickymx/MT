@@ -1,10 +1,6 @@
 # 🌍 Multilingual Functional Texts Database  
 **XML-Structured Corpus with Dynamic Access via Python & QR Codes**
 
-![GitHub repo size](https://img.shields.io/github/repo-size/your-username/your-repo?color=blue&style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/your-username/your-repo?color=green&style=flat-square)
-![License](https://img.shields.io/github/license/your-username/your-repo?style=flat-square)
-
 ---
 
 ## 📖 About the Project  
