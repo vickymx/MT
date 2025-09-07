@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<base href="https://vickymx.github.io/MT/">
 <title>Multilingual Functional Texts</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
@@ -28,6 +29,11 @@ select:hover,button:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba
 footer{text-align:center;padding:16px;font-size:14px;color:#fff;opacity:.9}
 footer a{color:#ffd54f;text-decoration:none;font-weight:600}
 footer a:hover{text-decoration:underline}
+.about{background:var(--card);border-radius:16px;padding:20px;box-shadow:var(--shadow);margin:20px 0;color:var(--text)}
+.about h2{margin:0 0 6px;font-size:18px}
+.about h3{margin:10px 0 12px;font-size:16px;color:#3f51b5}
+.about p{margin:6px 0;line-height:1.5;color:var(--text)}
+.about .sub{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -36,13 +42,18 @@ footer a:hover{text-decoration:underline}
 </header>
 
 <main>
+  <section class="about">
+    <h2>Магистърска програма по компютърна лингвистика и интернет технологии в хуманитаристиката</h2>
+    <h3>ДИПЛОМНА РАБОТА</h3>
+    <p><strong>Тема:</strong> Многоезична езикова база от кратки функционални текстове с XML структура и динамичен достъп чрез Python и QR код</p>
+    <p class="sub">Дипломант: Виктория Мирчева · Научен ръководител: доц. Атанас Атанасов · Факултетен №: 6SL4700065</p>
+  </section>
+
   <div class="controls">
     <select id="lang">
       <option value="bg">Български (BG)</option>
       <option value="en" selected>English (EN)</option>
       <option value="fr">Français (FR)</option>
-      <option value="es">Español (ES)</option>
-      <option value="zh">中文 (ZH)</option>
     </select>
     <select id="category">
       <option value="all">All categories</option>
@@ -53,167 +64,123 @@ footer a:hover{text-decoration:underline}
   </div>
 
   <div id="grid" class="grid"></div>
-  <p id="emptyMsg" style="display:none;color:#fff;opacity:.95;margin-top:12px">
-    No data embedded.
-  </p>
+  <p id="emptyMsg" style="display:none;color:#fff;opacity:.95;margin-top:12px">No data embedded.</p>
 </main>
 
 <footer>
-  <p>From <a href="https://github.com/vickymx/Multilingua" target="_blank">Viktoria Mircheva</a></p>
+  <p><a href="https://vickymx.github.io/MT/">vickymx.github.io/MT</a></p>
 </footer>
 
 <script>
-// ---------- EMBEDDED DATA (20 entries × 5 languages) ----------
 window.DATA = [
-  {id:"m1",category:"medicine",langs:{
-    bg:{title:"Абидоакс",content:"Антикоагулант (дабигатран етексилат). Възрастни: профилактика на венозни тромби след смяна на става. Деца: разтваря тромби и предотвратява рецидив."},
-    en:{title:"Abidoax",content:"Anticoagulant (dabigatran etexilate). Adults: prevents venous clots after joint replacement. Children: dissolves clots and prevents recurrence."},
-    fr:{title:"Abidoax",content:"Anticoagulant (dabigatran étexilate). Adultes : prévention des caillots veineux après prothèse. Enfants : dissout les caillots et empêche la récidive."},
-    es:{title:"Abidoax",content:"Anticoagulante (dabigatrán etexilato). Adultos: previene trombos venosos tras artroplastia. Niños: disuelve trombos y evita recurrencia."},
-    zh:{title:"Abidoax",content:"抗凝药（达比加群乙酯）。成人：关节置换术后预防静脉血栓。儿童：溶解已形成血栓并预防复发。"}
+  {category:"medicine",langs:{
+    bg:{title:"Абидоакс",content:"Абидоакс съдържа дабигатран етексилат (антикоагулант). При възрастни: профилактика на венозни тромби след смяна на колянна/тазобедрена става. При деца: разтваря съществуващи тромби и предотвратява повторно образуване."},
+    en:{title:"Abidoax",content:"Abidoax contains dabigatran etexilate (anticoagulant). Adults: prevents venous clots after knee/hip replacement. Children: dissolves existing clots and prevents recurrence."},
+    fr:{title:"Abidoax",content:"Abidoax contient du dabigatran étexilate (anticoagulant). Adultes : prévention des caillots veineux après prothèse du genou/de la hanche. Enfants : dissout les caillots existants et empêche leur récidive."}
   }},
-  {id:"m2",category:"medicine",langs:{
-    bg:{title:"Ибупрофен Акорд",content:"НСПВС за краткосрочно лечение на висока температура и лека до умерена болка; дългосрочно симптоматично лечение при хронични ревматични заболявания."},
-    en:{title:"Ibuprofen Accord",content:"NSAID for short-term high fever and mild–moderate pain; long-term symptomatic treatment in chronic inflammatory rheumatic diseases."},
-    fr:{title:"Ibuprofène Accord",content:"AINS pour fièvre élevée et douleurs légères à modérées; traitement symptomatique au long cours des maladies rhumatismales."},
-    es:{title:"Ibuprofeno Accord",content:"AINE para fiebre alta y dolor leve-moderado; tratamiento sintomático prolongado en enfermedades reumáticas inflamatorias crónicas."},
-    zh:{title:"布洛芬 Accord",content:"非甾体抗炎药。用于短期高热与轻-中度疼痛；慢性炎性风湿病的对症长期治疗。"}
+  {category:"medicine",langs:{
+    bg:{title:"Ибупрофен Акорд",content:"НСПВС за краткосрочно лечение на висока температура и лека до умерена болка (вкл. дисменорея) при възрастни и деца >6 г. Дългосрочно симптоматично лечение на болка/възпаление при хронични ревматични заболявания."},
+    en:{title:"Ibuprofen Accord",content:"NSAID for short-term treatment of high fever and mild-to-moderate pain (incl. dysmenorrhea) in adults and children >6 years. Long-term symptomatic treatment of pain/inflammation in chronic inflammatory rheumatic diseases."},
+    fr:{title:"Ibuprofène Accord",content:"AINS pour le traitement à court terme de la fièvre élevée et des douleurs légères à modérées (y compris dysménorrhée) chez les adultes et enfants >6 ans. Traitement symptomatique à long terme de la douleur/l’inflammation dans les maladies rhumatismales chroniques."}
   }},
-  {id:"m3",category:"medicine",langs:{
-    bg:{title:"Парацетамол",content:"Аналгетик и антипиретик. Ефективен при лека до умерена болка и за понижаване на температура."},
-    en:{title:"Paracetamol",content:"Analgesic and antipyretic. Effective for mild–moderate pain and fever reduction."},
-    fr:{title:"Paracétamol",content:"Analgésique et antipyrétique. Efficace contre douleurs légères à modérées et la fièvre."},
-    es:{title:"Paracetamol",content:"Analgésico y antipirético. Eficaz para dolor leve-moderado y para bajar la fiebre."},
-    zh:{title:"对乙酰氨基酚",content:"解热镇痛药。用于轻-中度疼痛及发热。"}
+  {category:"medicine",langs:{
+    bg:{title:"Парацетамол",content:"Аналгетик и антипиретик (пара-аминофенол). Ефективен при лека до умерена остра и хронична болка. Намалява повишената температура при треска."},
+    en:{title:"Paracetamol",content:"Analgesic and antipyretic (para-aminophenol). Effective for mild to moderate acute and chronic pain. Reduces elevated body temperature during fever."},
+    fr:{title:"Paracétamol",content:"Analgésique et antipyrétique (para-aminophénol). Efficace contre les douleurs aiguës/chroniques légères à modérées. Réduit la température corporelle en cas de fièvre."}
   }},
-  {id:"m4",category:"medicine",langs:{
-    bg:{title:"Каслирол сироп 250 mg/5 ml",content:"Карбоцистеин (муколитик) за облекчаване на отхрачването при респираторни заболявания (възрастни и >15 г.)."},
-    en:{title:"Kaslirol syrup 250 mg/5 ml",content:"Carbocisteine (mucolytic) to aid expectoration in respiratory conditions (adults and >15 y)."},
-    fr:{title:"Kaslirol sirop 250 mg/5 ml",content:"Carbocistéine (mucolytique) pour faciliter l’expectoration (adultes et >15 ans)."},
-    es:{title:"Kaslirol jarabe 250 mg/5 ml",content:"Carbocisteína (mucolítico) para facilitar la expectoración (adultos y >15 años)."},
-    zh:{title:"Kaslirol 糖浆 250 mg/5 ml",content:"羧甲司坦（黏液溶解剂），用于改善咳痰（成人及>15岁）。"}
+  {category:"medicine",langs:{
+    bg:{title:"Каслирол 250 mg/5 ml сироп",content:"Съдържа карбоцистеин (муколитик). За възрастни и деца >15 г. при респираторни заболявания със затруднено отхрачване; подпомага изчистването на бронхиални секрети."},
+    en:{title:"Kaslirol 250 mg/5 ml syrup",content:"Contains carbocisteine (mucolytic). For adults and children >15 years with respiratory diseases accompanied by difficult expectoration; helps clear bronchial secretions."},
+    fr:{title:"Kaslirol 250 mg/5 ml sirop",content:"Contient la carbocistéine (mucolytique). Indiqué chez l’adulte et l’enfant >15 ans pour les affections respiratoires avec expectoration difficile ; aide à évacuer les sécrétions bronchiques."}
   }},
-  {id:"m5",category:"medicine",langs:{
-    bg:{title:"Хексорал разтвор",content:"Антисептик (хексетидин) при леки орофарингеални инфекции, гингивит, болки в гърлото, афти, халитоза; преди/след операция; ежедневна хигиена."},
-    en:{title:"Hexoral solution",content:"Antiseptic (hexetidine) for minor oropharyngeal infections, gingivitis, sore throat, aphthous ulcers, halitosis; peri-operative use; daily oral hygiene."},
-    fr:{title:"Hexoral solution",content:"Antiseptique (hexétidine) pour infections oropharyngées mineures, gingivite, maux de gorge, aphtes, halitose; usage péri-opératoire; hygiène quotidienne."},
-    es:{title:"Hexoral solución",content:"Antiséptico (hexetidina) para infecciones orofaríngeas leves, gingivitis, odinofagia, aftas, halitosis; uso perioperatorio; higiene oral diaria."},
-    zh:{title:"Hexoral 溶液",content:"抗菌/抗真菌（己定啶）。用于轻度口咽感染、牙龈炎、咽痛、复发性口疮、口臭；术前/术后；日常口腔卫生。"}
+  {category:"medicine",langs:{
+    bg:{title:"Хексорал 0,1 g/100 ml разтвор",content:"Антисептик с антибактериално и противогъбично действие (хексетидин). Показан при леки орофарингеални инфекции, гингивит, възпалено гърло, рецидивиращи афти, халитоза; преди/след орофарингеална операция; за ежедневна орална хигиена."},
+    en:{title:"Hexoral 0.1 g/100 ml solution",content:"Antiseptic with antibacterial and antifungal action (hexetidine). Indicated for minor oropharyngeal infections, gingivitis, sore throat, recurrent aphthous ulcers, halitosis; before/after oropharyngeal surgery; daily oral hygiene."},
+    fr:{title:"Hexoral 0,1 g/100 ml solution buccale",content:"Antiseptique à base d’hexétidine. Indiqué pour infections oropharyngées mineures, gingivite, maux de gorge, aphtes récidivants, halitose ; avant/après chirurgie oropharyngée ; hygiène buccale quotidienne."}
   }},
-  {id:"m6",category:"medicine",langs:{
-    bg:{title:"Мипрофен 100 mg",content:"Флурбипрофен (НСПВС) при артрози, ревматични заболявания, спондилит, мускулно-скелетни болки; зъбобол, постоперативна, менструална болка, мигрена."},
-    en:{title:"Myprofen 100 mg",content:"Flurbiprofen (NSAID) for osteoarthritis, rheumatic disease, spondylitis, musculoskeletal pain; toothache, post-op, menstrual pain, migraine."},
-    fr:{title:"Myprofen 100 mg",content:"Flurbiprofène (AINS) pour arthrose, affections rhumatismales, spondylarthrite, douleurs musculo-squelettiques; douleurs dentaires, postopératoires, menstruelles, migraine."},
-    es:{title:"Myprofen 100 mg",content:"Flurbiprofeno (AINE) para artrosis, enfermedades reumáticas, espondilitis, dolor músculo-esquelético; dolor dental, posoperatorio, menstrual, migraña."},
-    zh:{title:"Myprofen 100 mg",content:"氟比洛芬（NSAID）。用于骨关节炎、风湿病、强直性脊柱炎、肌骨疼痛；牙痛、术后痛、经痛、偏头痛。"}
+  {category:"medicine",langs:{
+    bg:{title:"Мипрофен 100 mg таблетки",content:"Съдържа флурбипрофен (НСПВС). При остеоартрит, ревматични заболявания, анкилозиращ спондилит, мускулно-скелетни смущения, болки в кръста, навяхвания и изкълчвания; също зъбобол, постоперативна болка, менструална болка, мигрена."},
+    en:{title:"Myprofen 100 mg tablets",content:"Contains flurbiprofen (NSAID). For osteoarthritis, rheumatic disease, ankylosing spondylitis, musculoskeletal disorders, low back pain, sprains/strains; also toothache, post-operative pain, menstrual pain, migraine."},
+    fr:{title:"Myprofen 100 mg comprimés",content:"Contient du flurbiprofène (AINS). Pour arthrose, affections rhumatismales, spondylarthrite ankylosante, troubles musculo-squelettiques, lombalgies, entorses/foulures ; aussi douleurs dentaires, postopératoires, menstruelles et migraines."}
   }},
-  {id:"m7",category:"medicine",langs:{
-    bg:{title:"Ламизил Дермгел 1%",content:"Тербинафин (противогъбичен), без рецепта за кожни микози; ползвайте според указанията."},
-    en:{title:"LAMISIL DERMGEL 1%",content:"Terbinafine (antifungal), OTC for skin mycoses; use as directed."},
-    fr:{title:"LAMISIL DERMGEL 1%",content:"Terbinafine (antifongique), sans ordonnance pour mycoses cutanées; utiliser selon les instructions."},
-    es:{title:"LAMISIL DERMGEL 1%",content:"Terbinafina (antifúngico), sin receta para micosis cutáneas; use según las indicaciones."},
-    zh:{title:"LAMISIL DERMGEL 1%",content:"特比萘芬（抗真菌），非处方治疗皮肤真菌感染；按说明使用。"}
+  {category:"medicine",langs:{
+    bg:{title:"ЛАМИЗИЛ ДЕРМГЕЛ 1% гел",content:"Противогъбичен продукт (тербинафин). Без рецепта за лечение на кожни микози; използвайте внимателно според указанията за най-добри резултати."},
+    en:{title:"LAMISIL DERMGEL 1% Gel",content:"Antifungal (terbinafine). Over-the-counter treatment for skin fungal infections; use carefully as directed for best results."},
+    fr:{title:"LAMISIL DERMGEL 1% Gel",content:"Antifongique (terbinafine). Sans ordonnance pour le traitement des infections cutanées fongiques ; utiliser avec précaution selon les instructions."}
   }},
-  {id:"m8",category:"medicine",langs:{
-    bg:{title:"Ефизол 0,25 mg/30 mg",content:"Деквалиниев хлорид + витамин C. Антимикробно и противогъбично; витамин C укрепва съдовете и има противовъзпалителен ефект."},
-    en:{title:"Efisol 0.25 mg/30 mg",content:"Dequalinium chloride + vitamin C. Antimicrobial/antifungal; vitamin C strengthens vessels and has anti-inflammatory effect."},
-    fr:{title:"Efisol 0,25 mg/30 mg",content:"Chlorure de déqualinium + vitamine C. Antimicrobien/antifongique; la vitamine C renforce les vaisseaux et a un effet anti-inflammatoire."},
-    es:{title:"Efisol 0,25 mg/30 mg",content:"Cloruro de dequalinio + vitamina C. Acción antimicrobiana/antifúngica; la vitamina C refuerza los vasos y es antiinflamatoria."},
-    zh:{title:"Efisol 0.25 mg/30 mg",content:"去甲氯铵 + 维生素C。抗菌/抗真菌；维生素C增强血管并具抗炎作用。"}
+  {category:"medicine",langs:{
+    bg:{title:"Ефизол 0,25 mg/30 mg таблетки за смучене",content:"Комбинация деквалиниев хлорид + аскорбинова киселина. Деквалиниевият хлорид потиска микроорганизми и има противогъбична активност; уврежда клетъчни мембрани. Витамин C укрепва съдовите стени и има противовъзпалителен ефект."},
+    en:{title:"Efisol 0.25 mg/30 mg lozenges",content:"Dequalinium chloride + ascorbic acid. Dequalinium inhibits microorganisms and has antifungal activity; damages cell membranes. Vitamin C strengthens vessel walls and has anti-inflammatory effects."},
+    fr:{title:"Efisol 0,25 mg/30 mg comprimés à sucer",content:"Chlorure de déqualinium + acide ascorbique. Le déqualinium inhibe certains micro-organismes et possède une activité antifongique ; altère les membranes cellulaires. La vitamine C renforce les parois vasculaires et a un effet anti-inflammatoire."}
   }},
-  {id:"m9",category:"medicine",langs:{
-    bg:{title:"Профикс 500 mg",content:"Цефпрозил 500 mg – цефалоспоринов антибиотик с широк спектър за инфекции от чувствителни бактерии."},
-    en:{title:"Profix 500 mg",content:"Cefprozil 500 mg – broad-spectrum cephalosporin antibiotic for infections due to susceptible bacteria."},
-    fr:{title:"Profix 500 mg",content:"Céfprozil 500 mg – antibiotique céphalosporine à large spectre pour infections dues à des bactéries sensibles."},
-    es:{title:"Profix 500 mg",content:"Cefprozilo 500 mg – antibiótico cefalosporínico de amplio espectro para infecciones por bacterias sensibles."},
-    zh:{title:"Profix 500 mg",content:"头孢丙烯 500 mg——广谱头孢菌素，用于敏感菌感染。"}
+  {category:"medicine",langs:{
+    bg:{title:"Профикс 500 mg таблетки",content:"Цефпрозил 500 mg – полусинтетичен широкоспектърен цефалоспоринов антибиотик. За инфекции, причинени от чувствителни бактерии."},
+    en:{title:"Profix 500 mg tablets",content:"Cefprozil 500 mg – semi-synthetic, broad-spectrum cephalosporin antibiotic. For infections caused by cefprozil-sensitive bacteria."},
+    fr:{title:"Profix 500 mg comprimés",content:"Céfprozil 500 mg – antibiotique céphalosporine semi-synthétique à large spectre. Pour les infections dues à des bactéries sensibles au céfprozil."}
   }},
-  {id:"m10",category:"medicine",langs:{
-    bg:{title:"Витамин A Софарма 40 000 IU/ml",content:"Ретинол (мастноразтворим). Регенерация на кожа/лигавици; родопсин и адаптация към слаба светлина; хормони, скелет, устойчивост към инфекции/студ."},
-    en:{title:"Vitamin A Sopharma 40,000 IU/ml",content:"Retinol (fat-soluble). Supports skin/mucosa regeneration; rhodopsin/low-light adaptation; hormones, skeleton, resistance to infections/cold."},
-    fr:{title:"Vitamine A Sopharma 40 000 UI/ml",content:"Rétinol (liposoluble). Régénération peau/muqueuses; rhodopsine/vision faible; hormones, squelette, résistance aux infections/froid."},
-    es:{title:"Vitamina A Sopharma 40 000 UI/ml",content:"Retinol (liposoluble). Regeneración de piel/mucosas; rodopsina/baja luz; hormonas, esqueleto, resistencia a infecciones/frío."},
-    zh:{title:"维生素A Sopharma 40,000 IU/ml",content:"视黄醇（脂溶性）。皮肤/黏膜再生；视紫红质/暗适应；激素、骨骼、抗感染/抗寒。"}
+  {category:"medicine",langs:{
+    bg:{title:"Витамин A Софарма 40 000 IU/ml капки",content:"Ретинол (витамин A), мастноразтворим. Подпомага регенерация на кожа/лигавици; предотвратява сухота на конюнктива; участва в синтеза на родопсин; подпомага хормони, скелет, устойчивост към инфекции/студ."},
+    en:{title:"Vitamin A Sopharma 40,000 IU/ml drops",content:"Retinol (vitamin A), fat-soluble. Aids regeneration of skin/mucosa; prevents conjunctival dryness; part of rhodopsin synthesis; supports hormone synthesis, skeletal development, and resistance to infections/cold."},
+    fr:{title:"Vitamine A Sopharma 40 000 UI/ml gouttes",content:"Rétinol, vitamine liposoluble. Favorise la régénération peau/muqueuses ; prévient la sécheresse conjonctivale ; intervient dans la synthèse de la rhodopsine ; soutient la synthèse hormonale, le développement du squelette et la résistance aux infections/au froid."}
   }},
-  {id:"me1",category:"menus",langs:{
-    bg:{title:"Закуска",content:"Яйца Бенедикт; кростини с козе сирене; чиа пудинг; фреш от нар и портокал."},
-    en:{title:"Breakfast",content:"Eggs Benedict; goat-cheese crostini; chia pudding; pomegranate-orange juice."},
-    fr:{title:"Petit-déjeuner",content:"Œufs bénédicte; crostini au chèvre; pudding de chia; jus grenade-orange."},
-    es:{title:"Desayuno",content:"Huevos Benedict; crostini con queso de cabra; pudín de chía; zumo de granada y naranja."},
-    zh:{title:"早餐",content:"班尼迪克蛋；山羊奶酪烤面包片；奇亚籽布丁；石榴橙汁。"}
+  {category:"menus",langs:{
+    bg:{title:"Закуска",content:"Яйца Бенедикт с пушена сьомга и холандез; кростини с козе сирене, мед и мащерка; чиа пудинг с кокосово мляко и манго; фреш от нар и портокал."},
+    en:{title:"Breakfast",content:"Eggs Benedict with smoked salmon and hollandaise; crostini with goat cheese, honey and thyme; chia pudding with coconut milk and mango; freshly squeezed pomegranate and orange juice."},
+    fr:{title:"Petit-déjeuner",content:"Œufs bénédicte au saumon fumé et sauce hollandaise ; crostini au fromage de chèvre, miel et thym ; pudding de chia au lait de coco et mangue ; jus frais de grenade et d’orange."}
   }},
-  {id:"me2",category:"menus",langs:{
-    bg:{title:"Обяд",content:"Салата с киноа; телешки тартар; крем супа от грах; мини фокача."},
-    en:{title:"Lunch",content:"Quinoa salad; beef tartare; creamy pea soup; mini focaccia."},
-    fr:{title:"Déjeuner",content:"Salade de quinoa; tartare de bœuf; velouté de pois; mini focaccia."},
-    es:{title:"Almuerzo",content:"Ensalada de quinoa; tartar de ternera; crema de guisantes; mini focaccia."},
-    zh:{title:"午餐",content:"藜麦沙拉；牛肉塔塔；豌豆浓汤；迷你佛卡夏。"}
+  {category:"menus",langs:{
+    bg:{title:"Обяд",content:"Салата с киноа, авокадо и скариди; телешки тартар с каперси и жълтък; крем супа от грах с ментово масло; мини фокача с розмарин и маслини."},
+    en:{title:"Lunch",content:"Quinoa salad with avocado and shrimp; beef tartare with capers and egg yolk; creamy pea soup with mint oil; mini focaccia with rosemary and olives."},
+    fr:{title:"Déjeuner",content:"Salade de quinoa avec avocat et crevettes ; tartare de bœuf avec câpres et jaune d’œuf ; velouté de pois à l’huile de menthe ; mini focaccia au romarin et aux olives."}
   }},
-  {id:"me3",category:"menus",langs:{
-    bg:{title:"Вечеря",content:"Лаврак с целина; патешко магре; равиоли с рикота; шоколадов фондан."},
-    en:{title:"Dinner",content:"Sea bass with celery; duck magret; ricotta ravioli; chocolate fondant."},
-    fr:{title:"Dîner",content:"Bar au céleri; magret de canard; raviolis ricotta; fondant au chocolat."},
-    es:{title:"Cena",content:"Lubina con apio; magret de pato; raviolis de ricotta; fondant de chocolate."},
-    zh:{title:"晚餐",content:"海鲈配芹菜；法式鸭胸；乳清干酪饺；巧克力熔岩。"}
+  {category:"menus",langs:{
+    bg:{title:"Вечеря",content:"Филе от лаврак с мус от целина и сос от шампанско; патешко магре с пюре от пащърнак и сос от портокал; равиоли с рикота и лимонова кора, градински чай и масло; шоколадов фондан с малиново кули."},
+    en:{title:"Dinner",content:"Sea bass fillet with celery mousse and champagne sauce; duck magret with parsnip purée and orange sauce; ricotta and lemon zest ravioli with sage butter; chocolate fondant with raspberry coulis."},
+    fr:{title:"Dîner",content:"Filet de bar avec mousse de céleri et sauce au champagne ; magret de canard avec purée de panais et sauce à l’orange ; raviolis à la ricotta et zeste de citron au beurre de sauge ; fondant au chocolat avec coulis de framboise."}
   }},
-  {id:"me4",category:"menus",langs:{
-    bg:{title:"Бизнес среща",content:"Гъши дроб канапета; тарталети с авокадо; телешко филе с трюфел; ванилова панакота."},
-    en:{title:"Business meeting",content:"Foie gras canapés; avocado tartlets; truffled beef fillet; vanilla panna cotta."},
-    fr:{title:"Réunion d’affaires",content:"Canapés au foie gras; tartelettes à l’avocat; filet de bœuf truffé; panna cotta à la vanille."},
-    es:{title:"Reunión de negocios",content:"Canapés de foie gras; tartaletas de aguacate; filete de ternera con trufa; pannacotta de vainilla."},
-    zh:{title:"商务会餐",content:"鹅肝小点；牛油果挞；松露牛里脊；香草奶冻。"}
+  {category:"menus",langs:{
+    bg:{title:"Бизнес среща",content:"Канапета с гъши дроб и смокиново сладко; мини тарталети с крем от авокадо и скариди; печено телешко филе с трюфелено масло; панакота с ванилия и компот от круши."},
+    en:{title:"Business Meeting",content:"Foie gras canapés with fig jam; mini tartlets with avocado cream and shrimp; roasted beef fillet with truffle oil; vanilla panna cotta with pear compote."},
+    fr:{title:"Réunion d'affaires",content:"Canapés au foie gras avec confiture de figues ; mini tartelettes à la crème d’avocat et crevettes ; filet de bœuf rôti à l’huile de truffe ; panna cotta à la vanille avec compote de poires."}
   }},
-  {id:"me5",category:"menus",langs:{
-    bg:{title:"Сватба",content:"Рукола с пармезан; пилешко с бри; лаврак с лимон; торта с бял шоколад."},
-    en:{title:"Wedding",content:"Arugula-parmesan salad; chicken stuffed with brie; sea bass with lemon; white-chocolate cake."},
-    fr:{title:"Mariage",content:"Roquette-parmesan; poulet farci au brie; bar au citron; gâteau chocolat blanc."},
-    es:{title:"Boda",content:"Ensalada de rúcula y parmesano; pollo relleno con brie; lubina al limón; tarta de chocolate blanco."},
-    zh:{title:"婚宴",content:"芝麻菜帕玛森沙拉；布里芝士酿鸡；柠檬海鲈；白巧克力蛋糕。"}
+  {category:"menus",langs:{
+    bg:{title:"Сватба",content:"Салата с рукола, пармезан и балсамов винегрет; пълнено пилешко със спанак и Бри; лаврак на фурна с лимон и каперси; торта с бял шоколад и малини."},
+    en:{title:"Wedding",content:"Arugula salad with parmesan and balsamic vinaigrette; stuffed chicken with spinach and Brie; oven-baked sea bass with lemon and capers; white chocolate and raspberry cake."},
+    fr:{title:"Mariage",content:"Salade de roquette avec parmesan et vinaigrette balsamique ; poulet farci aux épinards et fromage Brie ; bar rôti au citron et câpres ; gâteau au chocolat blanc et framboises."}
   }},
-  {id:"me6",category:"menus",langs:{
-    bg:{title:"Коктейлно парти",content:"Мини бургери; шишчета с моцарела и песто; тарталети със сьомга; мини еклери с лайм."},
-    en:{title:"Cocktail party",content:"Mini burgers; mozzarella-pesto skewers; smoked-salmon tartlets; mini lime éclairs."},
-    fr:{title:"Cocktail",content:"Mini burgers; brochettes mozza-pesto; tartelettes au saumon fumé; mini éclairs au citron vert."},
-    es:{title:"Cóctel",content:"Mini hamburguesas; brochetas de mozzarella y pesto; tartaletas de salmón; mini éclairs de lima."},
-    zh:{title:"鸡尾酒会",content:"迷你汉堡；莫扎里拉香蒜签；熏三文鱼挞；青柠泡芙。"}
+  {category:"menus",langs:{
+    bg:{title:"Коктейлно парти",content:"Мини бургери с телешко и карамелизиран лук; шишчета с чери домати, моцарела и песто; тарталети с крем от пушена сьомга; мини еклери с мус от лайм."},
+    en:{title:"Cocktail Party",content:"Mini beef burgers with caramelized onion; cocktail skewers with cherry tomatoes, mozzarella and pesto; tartlets with smoked salmon cream; mini éclairs with lime mousse."},
+    fr:{title:"Cocktail",content:"Mini burgers de bœuf avec oignon caramélisé ; brochettes avec tomates cerises, mozzarella et pesto ; tartelettes à la crème de saumon fumé ; mini éclairs à la mousse de citron vert."}
   }},
-  {id:"me7",category:"menus",langs:{
-    bg:{title:"Вегетарианско меню",content:"Червено цвекло карпачо; гъбено ризото; печени зеленчуци; сорбе манго-лайм."},
-    en:{title:"Vegetarian menu",content:"Beet carpaccio; mushroom risotto; roasted vegetables; mango-lime sorbet."},
-    fr:{title:"Menu végétarien",content:"Carpaccio de betterave; risotto aux champignons; légumes rôtis; sorbet mangue-citron vert."},
-    es:{title:"Menú vegetariano",content:"Carpaccio de remolacha; risotto de setas; verduras asadas; sorbete de mango y lima."},
-    zh:{title:"素食菜单",content:"甜菜薄片；蘑菇烩饭；烤蔬菜；芒果青柠雪葩。"}
+  {category:"menus",langs:{
+    bg:{title:"Вегетарианско меню",content:"Карпачо от червено цвекло с козе сирене; ризото с гъби и трюфелово масло; печени зеленчуци с таханов сос; сорбе от манго и лайм."},
+    en:{title:"Vegetarian Menu",content:"Beet carpaccio with goat cheese; mushroom risotto with truffle oil; roasted vegetables with tahini sauce; mango and lime sorbet."},
+    fr:{title:"Menu végétarien",content:"Carpaccio de betterave avec fromage de chèvre ; risotto aux champignons et huile de truffe ; légumes rôtis avec sauce tahini ; sorbet mangue-citron vert."}
   }},
-  {id:"me8",category:"menus",langs:{
-    bg:{title:"Детско меню",content:"Мини макарони; пилешки хапки с пармезан; пюре от сладък картоф; мини мъфини банан-мед."},
-    en:{title:"Kids menu",content:"Mini macaroni; parmesan-crust chicken bites; sweet-potato purée; mini banana-honey muffins."},
-    fr:{title:"Menu enfant",content:"Mini macaronis; bouchées de poulet au parmesan; purée de patate douce; mini muffins banane-miel."},
-    es:{title:"Menú infantil",content:"Mini macarrones; bocados de pollo con parmesano; puré de batata; mini magdalenas de plátano y miel."},
-    zh:{title:"儿童菜单",content:"迷你通心粉；帕玛森鸡块；红薯泥；香蕉蜂蜜玛芬。"}
+  {category:"menus",langs:{
+    bg:{title:"Детско меню",content:"Мини макарони с доматен сос; пилешки хапки с пармезанова коричка; пюре от сладък картоф; мини мъфини банан-мед."},
+    en:{title:"Kids Menu",content:"Mini macaroni with homemade tomato sauce; chicken bites with parmesan crust; sweet potato purée with butter; mini banana and honey muffins."},
+    fr:{title:"Menu enfant",content:"Mini macaronis avec sauce tomate maison ; bouchées de poulet à la croûte de parmesan ; purée de patate douce au beurre ; mini muffins banane-miel."}
   }},
-  {id:"me9",category:"menus",langs:{
-    bg:{title:"Международно дегустационно",content:"Гаспачо; японски гьоза; индийско къри; крем брюле."},
-    en:{title:"International tasting",content:"Gazpacho; Japanese gyoza; Indian curry; crème brûlée."},
-    fr:{title:"Menu dégustation international",content:"Gaspacho; gyoza; curry indien; crème brûlée."},
-    es:{title:"Degustación internacional",content:"Gazpacho; gyoza japonés; curry indio; crème brûlée."},
-    zh:{title:"国际品鉴菜单",content:"西班牙冷汤；日式饺子；印度咖喱；法式焦糖布丁。"}
+  {category:"menus",langs:{
+    bg:{title:"Международно дегустационно меню",content:"Гаспачо с краставица и чушка; японски гьоза със зеленчуци; индийско къри с кокосово мляко и ориз басмати; крем брюле с ванилия."},
+    en:{title:"International Tasting Menu",content:"Spanish gazpacho with cucumber and pepper; Japanese vegetable gyoza; Indian curry with coconut milk and basmati rice; French vanilla crème brûlée."},
+    fr:{title:"Menu dégustation international",content:"Gaspacho espagnol concombre-poivron ; gyoza japonais aux légumes ; curry indien au lait de coco et riz basmati ; crème brûlée à la vanille."}
   }},
-  {id:"me10",category:"menus",langs:{
-    bg:{title:"Здравословно меню",content:"Киноа с нар и фета; сьомга с лимон и копър; тиквена супа; печена ябълка с канела."},
-    en:{title:"Wellness menu",content:"Quinoa with pomegranate and feta; salmon with lemon and dill; pumpkin soup; baked apple with cinnamon."},
-    fr:{title:"Menu bien-être",content:"Quinoa grenade-feta; saumon citron-aneth; soupe de potiron; pomme cuite à la cannelle."},
-    es:{title:"Menú saludable",content:"Quinoa con granada y feta; salmón con limón y eneldo; sopa de calabaza; manzana asada con canela."},
-    zh:{title:"健康菜单",content:"藜麦配石榴与菲达；柠檬莳萝三文鱼；南瓜汤；肉桂烤苹果。"}
+  {category:"menus",langs:{
+    bg:{title:"Здравословно меню",content:"Киноа с нар и фета; печена сьомга с лимон и копър; супа от тиква с кокосово мляко; печена ябълка с канела и орехи."},
+    en:{title:"Wellness Menu",content:"Quinoa salad with pomegranate and feta; roasted salmon with lemon and dill; pumpkin soup with coconut milk; baked apple with cinnamon and walnuts."},
+    fr:{title:"Menu bien-être",content:"Salade de quinoa avec grenade et feta ; saumon rôti au citron et à l’aneth ; soupe de potiron au lait de coco ; pomme cuite à la cannelle et aux noix."}
   }}
 ];
 
-// ---------- RENDER ----------
 function render(){
   const grid=document.getElementById('grid');
   const msg=document.getElementById('emptyMsg');
   const lang=document.getElementById('lang').value;
   const cat=document.getElementById('category').value;
-  const data=(window.DATA&&Array.isArray(window.DATA))?window.DATA:[];
+  const data=Array.isArray(window.DATA)?window.DATA:[];
   grid.innerHTML='';
   if(!data.length){msg.style.display='block';return}else{msg.style.display='none'}
   const items=data.filter(e=>cat==='all'||e.category===cat);
@@ -221,14 +188,18 @@ function render(){
     const L=it.langs[lang]||{};
     const el=document.createElement('div');
     el.className='card';
-    el.innerHTML=`<div class="meta"><span class="badge ${it.category}">${it.category}</span><span>#${it.id}</span></div>
-                  <h3>${L.title||'(no title)'}</h3><p>${L.content||''}</p>`;
+    el.innerHTML=
+      `<div class="meta"><span class="badge ${it.category}">${it.category}</span></div>
+       <h3>${L.title||''}</h3>
+       <p>${L.content||''}</p>`;
     grid.appendChild(el);
   }
   const url=new URL(location.href);
-  url.searchParams.set('lang',lang); url.searchParams.set('category',cat);
+  url.searchParams.set('lang',lang);
+  url.searchParams.set('category',cat);
   history.replaceState({},'',url);
 }
+
 window.addEventListener('DOMContentLoaded',()=>{
   const p=new URLSearchParams(location.search);
   if(p.get('lang')) document.getElementById('lang').value=p.get('lang');
@@ -236,9 +207,11 @@ window.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('lang').addEventListener('change',render);
   document.getElementById('category').addEventListener('change',render);
   document.getElementById('copy').addEventListener('click',async()=>{
-    try{await navigator.clipboard.writeText(location.href);
+    try{
+      await navigator.clipboard.writeText(location.href);
       const b=document.getElementById('copy');const t=b.textContent;b.textContent='Copied!';
-      setTimeout(()=>b.textContent=t,1200)}catch(e){alert('Copy failed')}
+      setTimeout(()=>b.textContent=t,1200);
+    }catch(e){alert('Copy failed')}
   });
   render();
 });
