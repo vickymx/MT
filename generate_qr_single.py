@@ -5,7 +5,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUT = ROOT / "qr"
 OUT.mkdir(exist_ok=True)
 
-DEFAULT_URL = "https://vickymx.github.io/MT/"  # change if needed
+DEFAULT_URL = "https://vickymx.github.io/MT/"  
 
 def main():
     url = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_URL
